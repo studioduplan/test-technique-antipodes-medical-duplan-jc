@@ -18,11 +18,11 @@
 }
 
 .sectionImageTexteBackground:before {
-  @apply bg-[url('wp-content/themes/antipodes-medical/images/bg.webp')];
   content: "";
   position: absolute;
   left: 0;
   bottom: 0;
+  background-image: url("../../images/bg.webp");
   background-repeat: no-repeat;
   background-size: cover;
   height: 35%;
