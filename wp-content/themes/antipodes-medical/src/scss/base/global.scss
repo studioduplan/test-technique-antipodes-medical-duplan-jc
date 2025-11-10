@@ -5,15 +5,15 @@
 }
 
 body {
-  @apply antialiased font-montserrat;
-
-  &.open-menu {
-    @apply fixed w-full overflow-hidden;
-  }
+  @apply antialiased font-montserrat text-base;
 }
 
 .container {
   @apply mx-auto px-6 xl:px-0;
+}
+
+.split-line {
+  @apply overflow-hidden;
 }
 
 .space {

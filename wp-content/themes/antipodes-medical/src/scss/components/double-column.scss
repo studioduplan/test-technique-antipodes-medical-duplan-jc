@@ -1,310 +1,59 @@
 .section {
-  position: relative;
-  color: #000;
-  background: transparent;
-  background: var(--custom_blue);
-  z-index: 0;
+  @apply relative text-black bg-custom_blue z-0;
 }
 
 .sectionImageTexteBackground {
-  position: relative;
-  padding: 40px 0;
-}
+  @apply relative py-10 xl:py-20 px-0 before:absolute before:start-0 before:bottom-0 before:bg-no-repeat before:bg-cover before:h-[35%] before:md:h-full before:w-full before:md:w-1/2 before:-z-[1] after:absolute after:end-0 after:top-0 after:h-[65%] after:md:h-full after:w-full after:md:w-[72%] after:lg:w-[62%] after:xl:w-[59%] after:-z-[1] after:bg-custom_blue;
 
-@media only screen and (min-width: 768px) {
-  .sectionImageTexteBackground {
-    padding: 79px 0;
-  }
-}
-
-.sectionImageTexteBackground:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  background-image: url("../../images/bg.webp");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 35%;
-  width: 100%;
-  z-index: -1;
-}
-
-@media only screen and (min-width: 875px) {
-  .sectionImageTexteBackground:before {
-    height: 100%;
-    width: 50%;
-    left: 0;
-    top: 0;
-  }
-}
-
-.sectionImageTexteBackground:after {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100%;
-  height: 65%;
-  background-color: #09245c;
-  background-color: var(--custom_blue);
-  z-index: -1;
-}
-
-@media only screen and (min-width: 875px) {
-  .sectionImageTexteBackground:after {
-    width: 72%;
-    height: 100%;
-  }
-}
-
-@media only screen and (min-width: 1024px) {
-  .sectionImageTexteBackground:after {
-    width: 62%;
-  }
-}
-
-@media only screen and (min-width: 1440px) {
-  .sectionImageTexteBackground:after {
-    width: 59%;
+  &:before {
+    background-image: url("../../images/bg.webp");
   }
 }
 
 .image-texte {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  gap: 28px;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-left: auto;
-}
+  @apply flex flex-col md:flex-row-reverse items-center justify-center ms-auto gap-20 lg:w-[94%] xl:w-[84%];
 
-@media only screen and (min-width: 875px) {
-  .image-texte {
-    gap: 30px;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-    -webkit-flex-direction: row-reverse;
-    -ms-flex-direction: row-reverse;
-    flex-direction: row-reverse;
+  &__image {
+    @apply flex-1 opacity-0;
+
+    img {
+      @apply min-h-[708px] sm:min-h-0 lg:min-h-[708px];
+    }
   }
-}
 
-@media only screen and (min-width: 1024px) {
-  .image-texte {
-    width: 94%;
-    gap: 70px;
+  &__content {
+    @apply flex-1;
+
+    &__sub-title {
+      @apply text-white text-base font-normal leading-6 uppercase md:text-xl md:font-semibold md:tracking-[2px];
+
+      span {
+        @apply opacity-0;
+      }
+    }
+
+    &__title {
+      @apply font-poppins leading-[55px] text-white text-[1.75rem] md:text-4xl xl:text-5xl xl:max-w-[25rem] 2xl:text-6xl md:mt-3 font-normal uppercase mt-3 opacity-0;
+    }
+
+    &__description {
+      @apply text-white text-lg font-light leading-[1.68] mt-5 md:mt-7 opacity-0 xl:max-w-[26.25rem];
+    }
+
+    &__link {
+      @apply mt-6 md:mt-11 opacity-0;
+
+      a {
+        @apply inline-flex items-center py-1 border border-solid border-white ps-6 pe-1 gap-3 transition-all duration-300 text-white text-base font-semibold rounded-[100px] hover:border-transparent;
+
+        &:hover svg {
+          @apply translate-x-1;
+        }
+
+        svg {
+          @apply transition-transform duration-300;
+        }
+      }
+    }
   }
-}
-
-@media only screen and (min-width: 1300px) {
-  .image-texte {
-    width: 84%;
-  }
-}
-
-.image-texte__image {
-  flex: 1;
-  opacity: 0;
-}
-
-.image-texte__image img {
-  min-height: 708px;
-}
-
-.image-texte__content {
-  flex: 1;
-}
-
-.image-texte__content__sub-title {
-  color: #fff;
-  color: var(--custom_white);
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.35;
-  text-transform: uppercase;
-  letter-spacing: 1.6px;
-}
-
-.image-texte__content__sub-title span {
-  opacity: 0;
-}
-
-@media only screen and (min-width: 768px) {
-  .image-texte__content__sub-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-  }
-}
-
-.image-texte__content__title {
-  font-family: "Poppins", sans-serif;
-  line-height: 55px;
-  color: #fff;
-  color: var(--custom_white);
-  -webkit-font-feature-settings: "liga" off;
-  font-feature-settings: "liga" off;
-  font-size: 1.75rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  margin-top: 10px;
-  opacity: 0;
-}
-
-@media only screen and (min-width: 768px) {
-  .image-texte__content__title {
-    font-size: 2.5rem;
-    margin-top: 12px;
-  }
-}
-
-@media only screen and (min-width: 1248px) {
-  .image-texte__content__title {
-    font-size: 3rem;
-  }
-}
-
-@media only screen and (min-width: 1248px) {
-  .image-texte__content__title {
-    max-width: 25rem;
-  }
-}
-
-@media only screen and (min-width: 1400px) {
-  .image-texte__content__title {
-    font-size: 3.4375rem;
-  }
-}
-
-.image-texte__content__description {
-  color: #fff;
-  color: var(--custom_white);
-  font-size: 1.125rem;
-  font-weight: 300;
-  line-height: 1.68;
-  margin-top: 20px;
-  opacity: 0;
-}
-
-@media only screen and (min-width: 768px) {
-  .image-texte__content__description {
-    margin-top: 28px;
-  }
-}
-
-@media only screen and (min-width: 1248px) {
-  .image-texte__content__description {
-    max-width: 26.25rem;
-  }
-}
-
-.image-texte__content__description a {
-  color: #fff;
-  color: var(--custom_white);
-  text-decoration: none;
-  font-weight: 600;
-  font-weight: var(--antipodes-hero__content__link__font-weight);
-  background: -webkit-gradient(
-      linear,
-      left top,
-      right top,
-      from(#fff),
-      to(#fff)
-    )
-    no-repeat left bottom/0% 1px;
-  background: linear-gradient(to right, #fff 0%, #fff 100%) no-repeat left
-    bottom/0% 1px;
-  background: -webkit-gradient(
-      linear,
-      left top,
-      right top,
-      from(var(--custom_white)),
-      to(var(--custom_white))
-    )
-    no-repeat left bottom/0% 1px;
-  background: linear-gradient(
-      to right,
-      var(--custom_white) 0%,
-      var(--custom_white) 100%
-    )
-    no-repeat left bottom/0% 1px;
-  -webkit-transition: background-size 0.35s ease-in-out, color 0.3s ease;
-  transition: background-size 0.35s ease-in-out, color 0.3s ease;
-}
-
-.image-texte__content__description a:hover {
-  background-size: 100% 1px;
-  color: #fff;
-  color: var(--custom_white);
-}
-
-.image-texte__content__link {
-  margin-top: 22px;
-  opacity: 0;
-}
-
-@media only screen and (min-width: 768px) {
-  .image-texte__content__link {
-    margin-top: 42px;
-  }
-}
-
-.image-texte__content__link a {
-  color: #fff;
-  color: var(--custom_white);
-  font-size: 1rem;
-  font-weight: 600;
-  -webkit-border-radius: 100px;
-  border-radius: 100px;
-  border-top: 0.5px solid #fff;
-  border-top: 0.5px solid var(--custom_white);
-  border-right: 1.5px solid #fff;
-  border-right: 1.5px solid var(--custom_white);
-  border-bottom: 0.7px solid #fff;
-  border-bottom: 0.7px solid var(--custom_white);
-  border-left: 1.5px solid #fff;
-  border-left: 1.5px solid var(--custom_white);
-  -webkit-transition: border-color ease 0.3s;
-  transition: border-color ease 0.3s;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  gap: 13px;
-  padding: 6px 4px 6px 20px;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-}
-
-.image-texte__content__link a svg {
-  -webkit-transition: -webkit-transform ease 0.3s;
-  transition: -webkit-transform ease 0.3s;
-  transition: transform ease 0.3s;
-  transition: transform ease 0.3s, -webkit-transform ease 0.3s;
-}
-
-.image-texte__content__link a:hover {
-  border-color: transparent;
-}
-
-.image-texte__content__link a:hover svg {
-  -webkit-transform: translateX(5px);
-  -ms-transform: translateX(5px);
-  transform: translateX(5px);
 }
