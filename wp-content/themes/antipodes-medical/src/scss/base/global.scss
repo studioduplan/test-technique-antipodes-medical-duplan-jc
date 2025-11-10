@@ -1,0 +1,31 @@
+:root {
+  --custom_white: #ffffff;
+  --custom_black: #000000;
+  --custom_blue: #09245c;
+}
+
+body {
+  @apply antialiased font-montserrat;
+
+  &.open-menu {
+    @apply fixed w-full overflow-hidden;
+  }
+}
+
+.container {
+  @apply mx-auto px-6 xl:px-0;
+}
+
+.space {
+  height: 70vh;
+}
+
+.object-fit-cover,
+.attachment-object-fit-cover {
+  @apply w-full h-full object-cover;
+}
+
+.object-fit-contain,
+.attachment-object-fit-cover {
+  @apply w-full h-auto object-contain;
+}
